@@ -117,8 +117,129 @@ TEST_CASE("Tests swaping between 's' and 'z'"){
     CHECK(find(text, "zsss") == string("sszz"));
 }
 
+TEST_CASE("Tests swaping between 'c', 'k' and 'q'"){
+    string text = "make things right not quick";
+    CHECK(find(text, "mace") == string("make"));
+    CHECK(find(text, "make") == string("make"));
+    CHECK(find(text, "maqe") == string("make"));
+    CHECK(find(text, "things") == string("things"));
+    CHECK(find(text, "riht") == string("right"));
+    CHECK(find(text, "not") == string("not"));
+    CHECK(find(text, "cuicc") == string("quick"));
+    CHECK(find(text, "cuick") == string("quick"));
+    CHECK(find(text, "cuicq") == string("quick"));
+    CHECK(find(text, "cuikc") == string("quick"));
+    CHECK(find(text, "cuikk") == string("quick"));
+    CHECK(find(text, "cuikq") == string("quick"));
+    CHECK(find(text, "cuiqc") == string("quick"));
+    CHECK(find(text, "cuiqk") == string("quick"));
+    CHECK(find(text, "cuiqq") == string("quick"));
+    CHECK(find(text, "kuicc") == string("quick"));
+    CHECK(find(text, "kuick") == string("quick"));
+    CHECK(find(text, "kuicq") == string("quick"));
+    CHECK(find(text, "kuikc") == string("quick"));
+    CHECK(find(text, "kuikk") == string("quick"));
+    CHECK(find(text, "kuikq") == string("quick"));
+    CHECK(find(text, "kuiqc") == string("quick"));
+    CHECK(find(text, "kuiqk") == string("quick"));
+    CHECK(find(text, "kuiqq") == string("quick"));
+    CHECK(find(text, "quicc") == string("quick"));
+    CHECK(find(text, "quick") == string("quick"));
+    CHECK(find(text, "quicq") == string("quick"));
+    CHECK(find(text, "quikc") == string("quick"));
+    CHECK(find(text, "quikk") == string("quick"));
+    CHECK(find(text, "quikq") == string("quick"));
+    CHECK(find(text, "quiqc") == string("quick"));
+    CHECK(find(text, "quiqk") == string("quick"));
+    CHECK(find(text, "quiqq") == string("quick"));
+}
+
+TEST_CASE("Tests swaping between 'g' and 'j'"){
+    string text = "judging while jumping is dangerous";
+    string str = "ggjj";
+    CHECK(find(text, "judjinj") == string("judging"));
+    CHECK(find(text, "judjing") == string("judging"));
+    CHECK(find(text, "judginj") == string("judging"));
+    CHECK(find(text, "judging") == string("judging"));
+    CHECK(find(text, "gudjinj") == string("judging"));
+    CHECK(find(text, "gudjing") == string("judging"));
+    CHECK(find(text, "gudginj") == string("judging"));
+    CHECK(find(text, "gudging") == string("judging"));
+    CHECK(find(text, "while") == string("while"));
+    CHECK(find(text, "jumping") == string("jumping"));
+    CHECK(find(text, "jumpinj") == string("jumping"));
+    CHECK(find(text, "gumpinj") == string("jumping"));
+    CHECK(find(text, "gumping") == string("jumping"));
+    CHECK(find(text, "dangerous") == string("dangerous"));
+    CHECK(find(text, "danjerous") == string("dangerous"));
+    CHECK(find(str, "gggg") == string("ggjj"));
+    CHECK(find(str, "gggj") == string("ggjj"));
+    CHECK(find(str, "ggjj") == string("ggjj"));
+    CHECK(find(str, "gjjj") == string("ggjj"));
+    CHECK(find(str, "jjjj") == string("ggjj"));
+    CHECK(find(str, "jjjg") == string("ggjj"));
+    CHECK(find(str, "jjgg") == string("ggjj"));
+    CHECK(find(str, "jggg") == string("ggjj"));
+}
+
+TEST_CASE("Tests swaping between 'b', 'f' and 'p'"){
+    string text = "this glass is bulletproof";
+    CHECK(find(text, "this") == string("this"));
+    CHECK(find(text, "glass") == string("glass"));
+    CHECK(find(text, "is") == string("is"));
+    CHECK(find(text, "bulletbroob") == string("bulletproof"));
+    CHECK(find(text, "bulletbroof") == string("bulletproof"));
+    CHECK(find(text, "bulletbroop") == string("bulletproof"));
+    CHECK(find(text, "bulletbroob") == string("bulletproof"));
+    CHECK(find(text, "bulletfroob") == string("bulletproof"));
+    CHECK(find(text, "bulletfroof") == string("bulletproof"));
+    CHECK(find(text, "bulletfroop") == string("bulletproof"));
+    CHECK(find(text, "bulletproob") == string("bulletproof"));
+    CHECK(find(text, "bulletproof") == string("bulletproof"));
+    CHECK(find(text, "bulletproop") == string("bulletproof"));
+    CHECK(find(text, "fulletbroob") == string("bulletproof"));
+    CHECK(find(text, "fulletbroof") == string("bulletproof"));
+    CHECK(find(text, "fulletbroop") == string("bulletproof"));
+    CHECK(find(text, "fulletfroob") == string("bulletproof"));
+    CHECK(find(text, "fulletfroof") == string("bulletproof"));
+    CHECK(find(text, "fulletfroop") == string("bulletproof"));
+    CHECK(find(text, "fulletproob") == string("bulletproof"));
+    CHECK(find(text, "fulletproof") == string("bulletproof"));
+    CHECK(find(text, "fulletproop") == string("bulletproof"));
+    CHECK(find(text, "pulletbroob") == string("bulletproof"));
+    CHECK(find(text, "pulletbroof") == string("bulletproof"));
+    CHECK(find(text, "pulletbroop") == string("bulletproof"));
+    CHECK(find(text, "pulletfroob") == string("bulletproof"));
+    CHECK(find(text, "pulletfroof") == string("bulletproof"));
+    CHECK(find(text, "pulletfroop") == string("bulletproof"));
+    CHECK(find(text, "pulletproob") == string("bulletproof"));
+    CHECK(find(text, "pulletproof") == string("bulletproof"));
+    CHECK(find(text, "pulletproop") == string("bulletproof"));
+}
+
+TEST_CASE("Tests swaping between 'v' and 'w'"){
+    string text = "just smile and wave!";
+    string str = "wwvv";
+    CHECK(find(text, "just") == string("just"));
+    CHECK(find(text, "smile") == string("smile"));
+    CHECK(find(text, "and") == string("and"));
+    CHECK(find(text, "wave") == string("wave"));
+    CHECK(find(text, "wawe") == string("wave"));
+    CHECK(find(text, "vawe") == string("wave"));
+    CHECK(find(text, "vave") == string("wave"));
+    CHECK(find(str, "wwww") == string("wwvv"));
+    CHECK(find(str, "wwwv") == string("wwvv"));
+    CHECK(find(str, "wwvv") == string("wwvv"));
+    CHECK(find(str, "wvvv") == string("wwvv"));
+    CHECK(find(str, "vvvv") == string("wwvv"));
+    CHECK(find(str, "vvvw") == string("wwvv"));
+    CHECK(find(str, "vvww") == string("wwvv"));
+    CHECK(find(str, "vwww") == string("wwvv"));
+}
+
+
 /*
-need to do more tests with c,k,q || g,j || b,f,p || v,w
+need to do more tests with wrong words
 also with lower case and upper case and maybe some test with loop or
 somthing a little bit more complicated.
 */
