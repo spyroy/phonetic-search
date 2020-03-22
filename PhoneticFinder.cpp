@@ -5,6 +5,8 @@
 #include "PhoneticFinder.hpp"
 #include <iostream>
 #include <bits/stdc++.h> 
+#include <sstream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -111,16 +113,17 @@ namespace phonetic{
         
         stringstream ss(text);
         string str;
-        string ans="";
+        string ans = "";
         while(ss >> str) {
             string s = match_words(str,word);
             if(s != "NULL"){
                 ans = str;
                 break;
             } 
-        }    
+        }  
         if(ans == ""){
-            throw "word not found";
+            throw std::runtime_error(std::string("Did not find the word 'happ' in the text"));
+            //return 0;
         } 
         return ans;
     }
