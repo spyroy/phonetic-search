@@ -15,14 +15,14 @@ TEST_CASE("Tests swaping between 'i' and 'y'"){
     CHECK(find(text, "a") == string("a"));
     CHECK(find(text, "good") == string("good"));
     CHECK(find(text, "day") == string("day"));
-    CHECK(find(str, "yyyy") == string("iiiyyy"));
-    CHECK(find(str, "yyyi") == string("iiiyyy"));
-    CHECK(find(str, "yyii") == string("iiiyyy"));
-    CHECK(find(str, "yiii") == string("iiiyyy"));
-    CHECK(find(str, "iiii") == string("iiiyyy"));
-    CHECK(find(str, "iiiy") == string("iiiyyy"));
-    CHECK(find(str, "iiyy") == string("iiiyyy"));
-    CHECK(find(str, "iyyy") == string("iiiyyy"));
+    CHECK(find(str, "yyyy") == string("iiyy"));
+    CHECK(find(str, "yyyi") == string("iiyy"));
+    CHECK(find(str, "yyii") == string("iiyy"));
+    CHECK(find(str, "yiii") == string("iiyy"));
+    CHECK(find(str, "iiii") == string("iiyy"));
+    CHECK(find(str, "iiiy") == string("iiyy"));
+    CHECK(find(str, "iiyy") == string("iiyy"));
+    CHECK(find(str, "iyyy") == string("iiyy"));
 }
 
 TEST_CASE("Tests swaping between 'o' and 'u'"){
@@ -64,7 +64,7 @@ TEST_CASE("Tests swaping between 'd' and 't'"){
     CHECK(find(text, "jusd") == string("just"));
     CHECK(find(text, "just") == string("just"));
     CHECK(find(text, "ged") == string("get"));
-    CHECK(find(text, "get") == string("ged"));
+    CHECK(find(text, "get") == string("get"));
     CHECK(find(text, "better") == string("better"));
     CHECK(find(text, "bedder") == string("better"));
     CHECK(find(text, "bedter") == string("better"));
@@ -107,14 +107,14 @@ TEST_CASE("Tests swaping between 's' and 'z'"){
     CHECK(find(text, "sneese") == string("sneeze"));
     CHECK(find(text, "zneeze") == string("sneeze"));
     CHECK(find(text, "zneese") == string("sneeze"));
-    CHECK(find(text, "ssss") == string("sszz"));
-    CHECK(find(text, "sssz") == string("sszz"));
-    CHECK(find(text, "sszz") == string("sszz"));
-    CHECK(find(text, "szzz") == string("sszz"));
-    CHECK(find(text, "zzzz") == string("sszz"));
-    CHECK(find(text, "zzzs") == string("sszz"));
-    CHECK(find(text, "zzss") == string("sszz"));
-    CHECK(find(text, "zsss") == string("sszz"));
+    CHECK(find(str, "ssss") == string("sszz"));
+    CHECK(find(str, "sssz") == string("sszz"));
+    CHECK(find(str, "sszz") == string("sszz"));
+    CHECK(find(str, "szzz") == string("sszz"));
+    CHECK(find(str, "zzzz") == string("sszz"));
+    CHECK(find(str, "zzzs") == string("sszz"));
+    CHECK(find(str, "zzss") == string("sszz"));
+    CHECK(find(str, "zsss") == string("sszz"));
 }
 
 TEST_CASE("Tests swaping between 'c', 'k' and 'q'"){
@@ -123,7 +123,7 @@ TEST_CASE("Tests swaping between 'c', 'k' and 'q'"){
     CHECK(find(text, "make") == string("make"));
     CHECK(find(text, "maqe") == string("make"));
     CHECK(find(text, "things") == string("things"));
-    CHECK(find(text, "riht") == string("right"));
+    CHECK(find(text, "right") == string("right"));
     CHECK(find(text, "not") == string("not"));
     CHECK(find(text, "cuicc") == string("quick"));
     CHECK(find(text, "cuick") == string("quick"));
@@ -218,7 +218,7 @@ TEST_CASE("Tests swaping between 'b', 'f' and 'p'"){
 }
 
 TEST_CASE("Tests swaping between 'v' and 'w'"){
-    string text = "just smile and wave!";
+    string text = "just smile and wave";
     string str = "wwvv";
     CHECK(find(text, "just") == string("just"));
     CHECK(find(text, "smile") == string("smile"));
@@ -236,6 +236,7 @@ TEST_CASE("Tests swaping between 'v' and 'w'"){
     CHECK(find(str, "vvww") == string("wwvv"));
     CHECK(find(str, "vwww") == string("wwvv"));
 }
+
 
 
 /*
