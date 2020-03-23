@@ -247,29 +247,29 @@ TEST_CASE("Tests swaping between 'v' and 'w'"){
 
 
 TEST_CASE("Tests wrong swaping - combined errors"){
-    string text = "My kid is five years old";
-    string str = "You are looking good mate";
-    CHECK_THROWS(find(text, "MTY") == string("My"));
-    CHECK_THROWS(find(text, "yu") == string("You"));
-    CHECK_THROWS(find(text, "kis") == string("kid"));
-    CHECK_THROWS(find(text, "iss") == string("is"));
-    CHECK_THROWS(find(text, "fibe") == string("five"));
-    CHECK_THROWS(find(text, "yeers") == string("years"));
-    CHECK_THROWS(find(text, "oldd") == string("old"));
-    CHECK_THROWS(find(str, "Youi") == string("You"));
-    CHECK_THROWS(find(str, "r") == string("are"));
-    CHECK_THROWS(find(str, "loking") == string("looking"));
-    CHECK_THROWS(find(str, "lookimg") == string("looking"));
-    CHECK_THROWS(find(str, "gold") == string("good"));
-    CHECK_THROWS(find(str, "goof") == string("good"));
-    CHECK_THROWS(find(str, "mare") == string("mate"));
-    CHECK_THROWS(find(str, "nate") == string("mate"));
+    string text = "My kid is five yeArs old";
+    string str = "You are loOking good maTe";
+    CHECK_THROWS(find(text, "MTY")); //("My"))
+    CHECK_THROWS(find(text, "yu")); //("You"))
+    CHECK_THROWS(find(text, "kis")) ;//("kid"))
+    CHECK_THROWS(find(text, "iss")); //("is"))
+    CHECK_THROWS(find(text, "fibe")); //("five"))
+    CHECK_THROWS(find(text, "yeers")); //("years"))
+    CHECK_THROWS(find(text, "oldd")); //("old"))
+    CHECK_THROWS(find(str, "Youi")); //("You"))
+    CHECK_THROWS(find(str, "r")); //("are"))
+    CHECK_THROWS(find(str, "loking")); //("looking"))
+    CHECK_THROWS(find(str, "lookimg")); //("looking"))
+    CHECK_THROWS(find(str, "gold")); //("good"))
+    CHECK_THROWS(find(str, "goof")); //("good"))
+    CHECK_THROWS(find(str, "mare")); //("mate"))
+    CHECK_THROWS(find(str, "nate")); //("mate"))
     CHECK_THROWS(find(str, ""));
     CHECK_THROWS(find(str, "yu"));
     CHECK_THROWS(find(str, "ar"));
     CHECK_THROWS(find(str, "looting"));
     CHECK_THROWS(find(str, "dood"));
-    CHECK_THROWS(find(str, "mat"));
+    CHECK_THROWS(find(str, "mAt"));
     CHECK_THROWS(find(text, ""));
     CHECK_THROWS(find(text, "m"));
     CHECK_THROWS(find(text, "myi"));
@@ -282,6 +282,7 @@ TEST_CASE("Tests wrong swaping - combined errors"){
 
 TEST_CASE("Tests swapping upper-case and lower-case"){
     string text = "tHe caKE iS a LIE";
+    string str = "cUp arm cAT away mEt turn hIt sEe hOt caLl Put blUe fIve noW gO wHere sAy Near Boy puRe baD diD Find giVe How Yes leG Man nO Sing peT Red Sun shE teA cheCk thinK thIs voiCe Wet Zoo pLeasure jUst (phonetic)";
     CHECK(find(text, "the") == string("tHe"));
     CHECK(find(text, "thE") == string("tHe"));
     CHECK(find(text, "The") == string("tHe"));
@@ -304,15 +305,51 @@ TEST_CASE("Tests swapping upper-case and lower-case"){
     CHECK(find(text, "liE") == string("LIE"));
     CHECK(find(text, "LIE") == string("LIE"));
     CHECK(find(text, "lIE") == string("LIE"));
-    CHECK_THROWS(find(text,"lYe") == string("LIE"));
-    CHECK_THROWS(find(text,"caCe") == string("caKE"));
+    CHECK(find(text,"lYe") == string("LIE")); 
+    CHECK(find(text,"caCe") == string("caKE"));
+    CHECK(find(str,"cub") == string("cUp"));
+    CHECK(find(str,"arm") == string("arm"));
+    CHECK(find(str,"cad") == string("cAT"));
+    CHECK(find(str,"awai") == string("away"));
+    CHECK(find(str,"met") == string("mEt"));
+    CHECK(find(str,"durn") == string("turn"));
+    CHECK(find(str,"hyt") == string("hIt"));
+    CHECK(find(str,"zee") == string("sEe"));
+    CHECK(find(str,"hod") == string("hOt"));
+    CHECK(find(str,"kall") == string("caLl"));
+    CHECK(find(str,"but") == string("Put"));
+    CHECK(find(str,"bloe") == string("blUe"));
+    CHECK(find(str,"fyve") == string("fIve"));
+    CHECK(find(str,"now") == string("noW"));
+    CHECK(find(str,"gu") == string("gO"));
+    CHECK(find(str,"where") == string("wHere"));
+    CHECK(find(str,"say") == string("sAy"));
+    CHECK(find(str,"near") == string("Near"));
+    CHECK(find(str,"foy") == string("Boy"));
+    CHECK(find(str,"pure") == string("puRe"));
+    CHECK(find(str,"bat") == string("baD"));
+    CHECK(find(str,"dit") == string("diD"));
+    CHECK(find(str,"pind") == string("Find"));
+    CHECK(find(str,"giwe") == string("giVe"));
+    CHECK(find(str,"how") == string("How"));
+    CHECK(find(str,"ies") == string("Yes"));
+    CHECK(find(str,"lej") == string("leG"));
+    CHECK(find(str,"man") == string("Man"));
+    CHECK(find(str,"nu") == string("nO"));
+    CHECK(find(str,"zing") == string("Sing"));
+    CHECK(find(str,"ped") == string("peT"));
+    CHECK(find(str,"red") == string("Red"));
+    CHECK(find(str,"zun") == string("Sun"));
+    CHECK(find(str,"she") == string("shE"));
+    CHECK(find(str,"tea") == string("teA"));
+    CHECK(find(str,"chekk") == string("cheCk"));
+    CHECK(find(str,"thinq") == string("thinK"));
+    CHECK(find(str,"voiqe") == string("voiCe"));
+    CHECK(find(str,"vet") == string("Wet"));
+    CHECK(find(str,"soo") == string("Zoo"));
+    CHECK(find(str,"pleasure") == string("pLeasure"));
+    CHECK(find(str,"jost") == string("jUst"));
+    CHECK(find(str,"(phonetic)") == string("(phonetic)"));
 }
 
-
-
-/*
-need to do more tests with wrong words
-also with lower case and upper case and maybe some test with loop or
-somthing a little bit more complicated.
-*/
 

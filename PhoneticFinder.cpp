@@ -22,53 +22,89 @@ using namespace std;
 
         switch(ch1){
             //v,w
+            case 'V': if(ch2 == 'w') return true;
+            break;
             case 'v': if(ch2 == 'w') return true;
+            break;
+            case 'W': if(ch2 == 'v') return true;
             break;
             case 'w': if(ch2 == 'v') return true;
             break;
             
             //b,f,p
+            case 'B': if(ch2 == 'f' || ch2 == 'p') return true;
+            break;
             case 'b': if(ch2 == 'f' || ch2 == 'p') return true;
             break;
+            case 'F': if(ch2 == 'b' || ch2 == 'p') return true;
+            break;
             case 'f': if(ch2 == 'b' || ch2 == 'p') return true;
+            break;
+            case 'P': if(ch2 == 'b' || ch2 == 'f') return true;
             break;
             case 'p': if(ch2 == 'b' || ch2 == 'f') return true;
             break;
 
             //g,j
+            case 'G': if(ch2 == 'j') return true;
+            break;
             case 'g': if(ch2 == 'j') return true;
+            break;
+            case 'J': if(ch2 == 'g') return true;
             break;
             case 'j': if(ch2 == 'g') return true;
             break;
 
             //c,k,q
+            case 'C': if(ch2 == 'k' || ch2 == 'q') return true;
+            break;
             case 'c': if(ch2 == 'k' || ch2 == 'q') return true;
             break;
+            case 'K': if(ch2 == 'c' || ch2 == 'q') return true;
+            break;
             case 'k': if(ch2 == 'c' || ch2 == 'q') return true;
+            break;
+            case 'Q': if(ch2 == 'c' || ch2 == 'k') return true;
             break;
             case 'q': if(ch2 == 'c' || ch2 == 'k') return true;
             break;
 
             //s,z
+            case 'S': if(ch2 == 'z') return true;
+            break;
             case 's': if(ch2 == 'z') return true;
+            break;
+            case 'Z': if(ch2 == 's') return true;
             break;
             case 'z': if(ch2 == 's') return true;
             break;
 
             //d,t
+            case 'D': if(ch2 == 't') return true;
+            break;
             case 'd': if(ch2 == 't') return true;
+            break;
+            case 'T': if(ch2 == 'd') return true;
             break;
             case 't': if(ch2 == 'd') return true;
             break;
 
             //o,u
+            case 'O': if(ch2 == 'u') return true;
+            break;
             case 'o': if(ch2 == 'u') return true;
+            break;
+            case 'U': if(ch2 == 'o') return true;
             break;
             case 'u': if(ch2 == 'o') return true;
             break;
 
             //i,y
+            case 'I': if(ch2 == 'y') return true;
+            break;
             case 'i': if(ch2 == 'y') return true;
+            break;
+            case 'Y': if(ch2 == 'i') return true;
             break;
             case 'y': if(ch2 == 'i') return true;
             break;
@@ -122,7 +158,7 @@ namespace phonetic{
             } 
         }  
         if(ans == ""){
-            throw std::runtime_error(std::string("Did not find the word" +  word + "in the text"));
+            throw std::runtime_error(std::string("Did not find the word" +  word + " in the text"));
             //return 0;
         } 
         return ans;
