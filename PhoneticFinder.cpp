@@ -122,7 +122,7 @@ namespace phonetic{
             } 
         }  
         if(ans == ""){
-            throw std::runtime_error(std::string("Did not find the word 'happ' in the text"));
+            throw std::runtime_error(std::string("Did not find the word" +  word + "in the text"));
             //return 0;
         } 
         return ans;

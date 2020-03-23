@@ -8,6 +8,7 @@ using namespace phonetic;
 TEST_CASE("Tests swaping between 'i' and 'y'"){
     string text = "this is a good day";
     string str = "iiyy";
+    CHECK(find(text, "THIS") == string("this"));
     CHECK(find(text, "thys") == string("this"));
     CHECK(find(text, "this") == string("this"));
     CHECK(find(text, "ys") == string("is"));
@@ -28,6 +29,7 @@ TEST_CASE("Tests swaping between 'i' and 'y'"){
 TEST_CASE("Tests swaping between 'o' and 'u'"){
     string text = "do more of what makes you happy";
     string str = "oouu";
+    CHECK(find(text, "DO") == string("do"));
     CHECK(find(text, "du") == string("do"));
     CHECK(find(text, "do") == string("do"));
     CHECK(find(text, "mure") == string("more"));
@@ -54,6 +56,7 @@ TEST_CASE("Tests swaping between 'o' and 'u'"){
 TEST_CASE("Tests swaping between 'd' and 't'"){
     string text = "it never gets easier you just get better and better";
     string str = "ddtt";
+    CHECK(find(text, "IT") == string("it"));
     CHECK(find(text, "id") == string("it"));
     CHECK(find(text, "it") == string("it"));
     CHECK(find(text, "never") == string("never"));
@@ -84,6 +87,7 @@ TEST_CASE("Tests swaping between 'd' and 't'"){
 TEST_CASE("Tests swaping between 's' and 'z'"){
     string text = "sucsess makes you sneeze";
     string str = "sszz";
+    CHECK(find(text, "SUCSESS") == string("sucsess"));
     CHECK(find(text, "sucsess") == string("sucsess"));
     CHECK(find(text, "sucsesz") == string("sucsess"));
     CHECK(find(text, "sucsezs") == string("sucsess"));
@@ -119,6 +123,7 @@ TEST_CASE("Tests swaping between 's' and 'z'"){
 
 TEST_CASE("Tests swaping between 'c', 'k' and 'q'"){
     string text = "make things right not quick";
+    CHECK(find(text, "MAKE") == string("make"));
     CHECK(find(text, "mace") == string("make"));
     CHECK(find(text, "make") == string("make"));
     CHECK(find(text, "maqe") == string("make"));
@@ -157,6 +162,7 @@ TEST_CASE("Tests swaping between 'c', 'k' and 'q'"){
 TEST_CASE("Tests swaping between 'g' and 'j'"){
     string text = "judging while jumping is dangerous";
     string str = "ggjj";
+    CHECK(find(text, "JUDGING") == string("judging"));
     CHECK(find(text, "judjinj") == string("judging"));
     CHECK(find(text, "judjing") == string("judging"));
     CHECK(find(text, "judginj") == string("judging"));
@@ -184,6 +190,7 @@ TEST_CASE("Tests swaping between 'g' and 'j'"){
 
 TEST_CASE("Tests swaping between 'b', 'f' and 'p'"){
     string text = "this glass is bulletproof";
+    CHECK(find(text, "THIS") == string("this"));
     CHECK(find(text, "this") == string("this"));
     CHECK(find(text, "glass") == string("glass"));
     CHECK(find(text, "is") == string("is"));
@@ -220,6 +227,7 @@ TEST_CASE("Tests swaping between 'b', 'f' and 'p'"){
 TEST_CASE("Tests swaping between 'v' and 'w'"){
     string text = "just smile and wave";
     string str = "wwvv";
+    CHECK(find(text, "JUST") == string("just"));
     CHECK(find(text, "just") == string("just"));
     CHECK(find(text, "smile") == string("smile"));
     CHECK(find(text, "and") == string("and"));
@@ -235,6 +243,69 @@ TEST_CASE("Tests swaping between 'v' and 'w'"){
     CHECK(find(str, "vvvw") == string("wwvv"));
     CHECK(find(str, "vvww") == string("wwvv"));
     CHECK(find(str, "vwww") == string("wwvv"));
+}
+
+
+TEST_CASE("Tests wrong swaping - combined errors"){
+    string text = "My kid is five years old";
+    string str = "You are looking good mate";
+    CHECK_THROWS(find(text, "MTY") == string("My"));
+    CHECK_THROWS(find(text, "yu") == string("You"));
+    CHECK_THROWS(find(text, "kis") == string("kid"));
+    CHECK_THROWS(find(text, "iss") == string("is"));
+    CHECK_THROWS(find(text, "fibe") == string("five"));
+    CHECK_THROWS(find(text, "yeers") == string("years"));
+    CHECK_THROWS(find(text, "oldd") == string("old"));
+    CHECK_THROWS(find(str, "Youi") == string("You"));
+    CHECK_THROWS(find(str, "r") == string("are"));
+    CHECK_THROWS(find(str, "loking") == string("looking"));
+    CHECK_THROWS(find(str, "lookimg") == string("looking"));
+    CHECK_THROWS(find(str, "gold") == string("good"));
+    CHECK_THROWS(find(str, "goof") == string("good"));
+    CHECK_THROWS(find(str, "mare") == string("mate"));
+    CHECK_THROWS(find(str, "nate") == string("mate"));
+    CHECK_THROWS(find(str, ""));
+    CHECK_THROWS(find(str, "yu"));
+    CHECK_THROWS(find(str, "ar"));
+    CHECK_THROWS(find(str, "looting"));
+    CHECK_THROWS(find(str, "dood"));
+    CHECK_THROWS(find(str, "mat"));
+    CHECK_THROWS(find(text, ""));
+    CHECK_THROWS(find(text, "m"));
+    CHECK_THROWS(find(text, "myi"));
+    CHECK_THROWS(find(text, "gid"));
+    CHECK_THROWS(find(text, "si"));
+    CHECK_THROWS(find(text, "fie"));
+    CHECK_THROWS(find(text, "year"));
+    CHECK_THROWS(find(text, "hold"));
+}
+
+TEST_CASE("Tests swapping upper-case and lower-case"){
+    string text = "tHe caKE iS a LIE";
+    CHECK(find(text, "the") == string("tHe"));
+    CHECK(find(text, "thE") == string("tHe"));
+    CHECK(find(text, "The") == string("tHe"));
+    CHECK(find(text, "THE") == string("tHe"));
+    CHECK(find(text, "tHe") == string("tHe"));
+    CHECK(find(text, "cake") == string("caKE"));
+    CHECK(find(text, "cakE") == string("caKE"));
+    CHECK(find(text, "caKE") == string("caKE"));
+    CHECK(find(text, "cAKE") == string("caKE"));
+    CHECK(find(text, "Cake") == string("caKE"));
+    CHECK(find(text, "is") == string("iS"));
+    CHECK(find(text, "IS") == string("iS"));
+    CHECK(find(text, "iS") == string("iS"));
+    CHECK(find(text, "Is") == string("iS"));
+    CHECK(find(text, "a") == string("a"));
+    CHECK(find(text, "A") == string("a"));
+    CHECK(find(text, "lie") == string("LIE"));
+    CHECK(find(text, "Lie") == string("LIE"));
+    CHECK(find(text, "lIe") == string("LIE"));
+    CHECK(find(text, "liE") == string("LIE"));
+    CHECK(find(text, "LIE") == string("LIE"));
+    CHECK(find(text, "lIE") == string("LIE"));
+    CHECK_THROWS(find(text,"lYe") == string("LIE"));
+    CHECK_THROWS(find(text,"caCe") == string("caKE"));
 }
 
 
