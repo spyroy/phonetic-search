@@ -1,3 +1,6 @@
+/**
+ * AUTHORS: <Matan Greenberg & Or Mendel>
+ */
 #include "PhoneticFinder.hpp"
 #include "doctest.h"
 #include <string>
