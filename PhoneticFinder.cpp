@@ -1,3 +1,6 @@
+/**
+ * AUTHORS: <Matan Greenberg & Or Mendel>
+ */
 #include <algorithm>
 #include <string>
 #include <string.h>
