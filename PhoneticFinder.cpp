@@ -1,6 +1,7 @@
 /**
  * AUTHORS: <Matan Greenberg & Or Mendel>
  */
+
 #include <algorithm>
 #include <string>
 #include <string.h>
@@ -18,7 +19,7 @@ using namespace std;
     /**
      * the perplexing letters 
      * and what they should be swapped with
-     **/
+     */
     bool perplexing_letters(char ch1,char ch2){
         if(tolower(ch1)==ch2)
             return true;
@@ -125,7 +126,7 @@ using namespace std;
      * so we return null otherwise 
      * they are the same word with some
      * perplexing letters
-     **/
+     */
     string match_words(string s1,string s2){
         if(s1.length() != s2.length()){
              return "NULL";
@@ -143,10 +144,10 @@ using namespace std;
  * finds the word in the text
  * with the restriction
  * of perplexing letters
- **/    
+ */    
 namespace phonetic{
     string find(string text,string word) {
-        //to lower case (src unknown)
+        //to lower case
         transform(word.begin(), word.end(), word.begin(),[](unsigned char c){ return tolower(c); });
         
         stringstream ss(text);
