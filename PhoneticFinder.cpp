@@ -146,8 +146,7 @@ using namespace std;
  **/    
 namespace phonetic{
     string find(string text,string word) {
-        //to lower case
-        //transform(text.begin(), text.end(), text.begin(),[](unsigned char c){ return tolower(c); });
+        //to lower case (src unknown)
         transform(word.begin(), word.end(), word.begin(),[](unsigned char c){ return tolower(c); });
         
         stringstream ss(text);
